@@ -36,20 +36,6 @@
 <p>View Composer value
     <br>'view_message' = {{$view_message}}
 </p>
-
-    {{-- @component('components.message') --}}
-        {{-- @slot('msg_title')
-            Caution!
-        @endslot
-
-        @slot('msg_content')
-        'koko'
-        @endslot --}}
-    {{-- @endcomponent --}}
-
-    {{-- @include('components.message',['msg_title'=>'OK','msg_content'=>'さぶびゅー！'])
-
-    @each('components.item',$data,'item') --}}
     
 @endsection
 
