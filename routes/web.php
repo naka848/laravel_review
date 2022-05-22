@@ -33,7 +33,7 @@ Route::get('/', function () {
 // });
 
 Route::get('hello',[HelloController::class,'index']);
-Route::post('hello',[HelloController::class,'moeko']);
+// Route::post('hello',[HelloController::class,'moeko']);
 
 // Route::post('hello',function(){
 //     return view('hello.result');

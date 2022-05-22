@@ -30,12 +30,21 @@
 @endsection
 
 @section('content')
-<p>ここが本文のコンテンツです</p>
-<p>Controller value
-    <br>'message' = {{$message}}</p>
-<p>View Composer value
-    <br>'view_message' = {{$view_message}}
-</p>
+<tr>
+    <th>id</th>
+    <th>corporate_number</th>
+    <th>corporate_name</th>
+    <th>created</th>
+</tr>
+@foreach ($items as $item )
+<tr>
+    <td>{{$item->id}}</td>
+    <td>{{$item->corporate_number}}</td>
+    <td>{{$item->corporate_name}}</td>
+    <td>{{$item->created}}</td>
+</tr>
+    
+@endforeach
     
 @endsection
 

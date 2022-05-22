@@ -8,9 +8,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class HelloController extends Controller
 {
+    public function index(Request $request){
+        $items = DB::select('select * from corporations');
+        return view('hello.index',['items'=>$items]);
+    }
+
+
     // public function index($id)
     // {
     //     $data = ['msg' => 'mindabi', 'id' => $id];
@@ -25,13 +32,15 @@ class HelloController extends Controller
     //     return view('hello.index',$data);
     // }
 
-    public function index(){
-        return view('hello.index',['message'=>'Hello!']);
-    }
+    // public function index(){
+    //     return view('hello.index',['message'=>'Hello!']);
+    // }
 
     // public function moeko(Request $request){
     //     $msg = $request->momo;
     //     $data = ['message'=>'hello,'.$msg.'san!!'];
     //     return view('hello.index',$data);
     // }
+
+    
 }
