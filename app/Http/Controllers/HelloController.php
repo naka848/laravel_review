@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 class HelloController extends Controller
 {
+    // TODO
     public function index(Request $request){
         $items = DB::select('select * from corporations');
         return view('hello.index',['items'=>$items]);
