@@ -6,42 +6,26 @@ namespace App\Http\Controllers;
 
 // Illuminate\Httpパッケージ内に用意されている「Request」を使える状態にしている
 use Illuminate\Http\Request;
-
 use Illuminate\Http\Response;
+use App\Http\Requests\HelloRequest;
+use Validator;
 use Illuminate\Support\Facades\DB;
+use App\Person;
+use Illuminate\Support\Facades\Auth;
 
 class HelloController extends Controller
 {
-    // TODO
     public function index(Request $request){
-        $items = DB::select('select * from corporations');
-        return view('hello.index',['items'=>$items]);
+        return view('hello.index',['msg'=>'フォームを入力']);
     }
 
-
-    // public function index($id)
-    // {
-    //     $data = ['msg' => 'mindabi', 'id' => $id];
-
-    // 'hello.index' = helloフォルダのindex.php or index.blade.php
-    // ※bladeが優先的に読み込まれる
-    //     return view('hello.index', $data);
-    // }
-
-    // public function index(Request $request){
-    //     $data = ['msg' => 'おはようにっぽん','id' => $request->id];
-    //     return view('hello.index',$data);
-    // }
-
-    // public function index(){
-    //     return view('hello.index',['message'=>'Hello!']);
-    // }
-
-    // public function moeko(Request $request){
-    //     $msg = $request->momo;
-    //     $data = ['message'=>'hello,'.$msg.'san!!'];
-    //     return view('hello.index',$data);
-    // }
-
-    
+    public function post(Request $request){
+        $validate_rule = [
+            'name' => 'required',
+            'mail' => 'email',
+            'age' => 'numeric|between:0,150',
+        ];
+        $this->validate($request,$validate_rule);
+        return view('hello.index',['msg'=>'正しく入力されていました！']);
+    }
 }

@@ -25,27 +25,30 @@
 @section('menubar')
     @parent
     インデックスページ
-    {{-- ももんがページ
-    わくわくページ --}}
 @endsection
 
 @section('content')
-<tr>
-    <th>id</th>
-    <th>corporate_number</th>
-    <th>corporate_name</th>
-    <th>created</th>
-</tr>
-@foreach ($items as $item )
-<tr>
-    <td>{{$item->id}}</td>
-    <td>{{$item->corporate_number}}</td>
-    <td>{{$item->corporate_name}}</td>
-    <td>{{$item->created}}</td>
-</tr>
-    
-@endforeach
-    
+<p>{{$msg}}</p>
+<form action="hello" method="post"></form>
+<table>
+    @csrf
+    <tr>
+        <th>name: </th>
+        <td><input type="text" name="name"></td>
+    </tr>
+    <tr>
+        <th>mail: </th>
+        <td><input type="text" name="mail"></td>
+    </tr>
+    <tr>
+        <th>age: </th>
+        <td><input type="text" name="age"></td>
+    </tr>
+    <tr>
+        <th></th>
+        <td><input type="submit" value="send"></td>
+    </tr>
+</table>
 @endsection
 
 
